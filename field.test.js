@@ -18,4 +18,21 @@ describe('Field', () => {
       expect(f.field).toEqual(grid);
     });
   });
+
+  describe('print', () => {
+    it('logs each row of the field as a string', () => {
+      const grid = [
+        [path, field],
+        [field, hat],
+      ];
+      const f = new Field(grid);
+      const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => { });
+
+      f.print();
+
+      expect(consoleSpy).toHaveBeenCalledWith('*░');
+      expect(consoleSpy).toHaveBeenCalledWith('░^');
+      consoleSpy.mockRestore();
+    });
+  });
 });
