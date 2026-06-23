@@ -35,4 +35,18 @@ describe('Field', () => {
       consoleSpy.mockRestore();
     });
   });
+
+  describe('move', () => {
+    it('moving right updates the field to mark the new position', () => {
+      const grid = [
+        [path, field, field],
+        [field, field, field],
+      ];
+      const f = new Field(grid);
+
+      f.move('r');
+
+      expect(f.field[0][1]).toBe(path);
+    });
+  });
 });
