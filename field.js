@@ -42,6 +42,8 @@ class Field {
 
     if (this.field[this.row][this.col] == this.hat) {
       return 'win'
+    } else if (this.field[this.row][this.col] == this.hole) {
+      return 'lose'
     } else {
       this.field[this.row][this.col] = this.pathCharacter;
     }

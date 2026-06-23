@@ -59,5 +59,16 @@ describe('Field', () => {
 
       expect(result).toBe('win');
     });
+
+    it('returns "lose" when the player moves into a hole', () => {
+      const grid = [
+        [path, hole],
+      ];
+      const f = new Field(grid);
+
+      const result = f.move('r');
+
+      expect(result).toBe('lose');
+    });
   });
 });
