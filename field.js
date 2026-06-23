@@ -61,6 +61,14 @@ class Field {
       this.field[this.row][this.col] = this.pathCharacter;
     }
   }
+
+  static generateField(height, width) {
+    let rowsQty = [];
+    for (let i = 0; i < height; i++) {
+      rowsQty.push(new Array(width));
+    }
+    return rowsQty;
+  }
 }
 
 module.exports = Field;

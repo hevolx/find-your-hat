@@ -82,4 +82,13 @@ describe('Field', () => {
       expect(result).toBe('out-of-bounds');
     });
   });
+
+  describe('generateField', () => {
+    it('returns a 2D array with the given height and width', () => {
+      const result = Field.generateField(3, 5);
+
+      expect(result).toHaveLength(3);
+      expect(result[0]).toHaveLength(5);
+    });
+  });
 });
