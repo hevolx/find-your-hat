@@ -70,5 +70,16 @@ describe('Field', () => {
 
       expect(result).toBe('lose');
     });
+
+    it('returns "out-of-bounds" when the player moves outside the field', () => {
+      const grid = [
+        [path, field],
+      ];
+      const f = new Field(grid);
+
+      const result = f.move('l');
+
+      expect(result).toBe('out-of-bounds');
+    });
   });
 });
