@@ -98,5 +98,13 @@ describe('Field', () => {
 
       expect(hats).toHaveLength(1);
     });
+
+    it('contains at least one hole when percentage is given', () => {
+      const result = Field.generateField(5, 5, 0.3);
+
+      const holes = result.flat().filter(cell => cell === hole);
+
+      expect(holes.length).toBeGreaterThanOrEqual(1);
+    });
   });
 });

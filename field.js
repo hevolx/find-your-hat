@@ -62,16 +62,24 @@ class Field {
     }
   }
 
-  static generateField(height, width) {
+  static generateField(height, width, percentage = 0) {
     let map = [];
     for (let i = 0; i < height; i++) {
-      map.push(new Array(width));
+      map.push(new Array(width).fill(fieldCharacter));
     }
 
-    let rndHeight = Math.floor(Math.random() * height);
-    let rndWidth = Math.floor(Math.random() * width);
-
+    const rndHeight = Math.floor(Math.random() * height);
+    const rndWidth = Math.floor(Math.random() * width);
     map[rndHeight][rndWidth] = hat;
+
+    for (let r = 0; r < height; r++) {
+      for (let c = 0; c < width; c++) {
+        if (map[r][c] !== hat && Math.random() < percentage) {
+          map[r][c] = hole;
+        }
+      }
+    }
+
     return map;
   }
 }
