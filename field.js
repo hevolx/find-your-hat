@@ -40,7 +40,11 @@ class Field {
         break;
     }
 
-    this.field[this.row][this.col] = this.pathCharacter;
+    if (this.field[this.row][this.col] == this.hat) {
+      return 'win'
+    } else {
+      this.field[this.row][this.col] = this.pathCharacter;
+    }
   }
 }
 

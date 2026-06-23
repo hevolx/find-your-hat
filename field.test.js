@@ -48,5 +48,16 @@ describe('Field', () => {
 
       expect(f.field[0][1]).toBe(path);
     });
+
+    it('returns "win" when the player moves onto the hat', () => {
+      const grid = [
+        [path, hat],
+      ];
+      const f = new Field(grid);
+
+      const result = f.move('r');
+
+      expect(result).toBe('win');
+    });
   });
 });
