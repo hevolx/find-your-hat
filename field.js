@@ -63,11 +63,16 @@ class Field {
   }
 
   static generateField(height, width) {
-    let rowsQty = [];
+    let map = [];
     for (let i = 0; i < height; i++) {
-      rowsQty.push(new Array(width));
+      map.push(new Array(width));
     }
-    return rowsQty;
+
+    let rndHeight = Math.floor(Math.random() * height);
+    let rndWidth = Math.floor(Math.random() * width);
+
+    map[rndHeight][rndWidth] = hat;
+    return map;
   }
 }
 

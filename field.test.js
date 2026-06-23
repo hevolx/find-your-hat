@@ -90,5 +90,13 @@ describe('Field', () => {
       expect(result).toHaveLength(3);
       expect(result[0]).toHaveLength(5);
     });
+
+    it('contains exactly one hat', () => {
+      const result = Field.generateField(4, 4);
+
+      const hats = result.flat().filter(cell => cell === hat);
+
+      expect(hats).toHaveLength(1);
+    });
   });
 });
