@@ -74,11 +74,13 @@ class Field {
 
     for (let r = 0; r < height; r++) {
       for (let c = 0; c < width; c++) {
-        if (map[r][c] !== hat && Math.random() < percentage) {
+        if (map[r][c] !== hat && !(r === 0 && c === 0) && Math.random() < percentage) {
           map[r][c] = hole;
         }
       }
     }
+
+    map[0][0] = pathCharacter;
 
     return map;
   }

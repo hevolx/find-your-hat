@@ -106,5 +106,11 @@ describe('Field', () => {
 
       expect(holes.length).toBeGreaterThanOrEqual(1);
     });
+
+    it('marks the starting position [0][0] with the path character', () => {
+      const result = Field.generateField(3, 3);
+
+      expect(result[0][0]).toBe(path);
+    });
   });
 });
