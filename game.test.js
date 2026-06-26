@@ -41,5 +41,23 @@ describe('Game', () => {
       expect(consoleSpy).toHaveBeenCalledWith('**░');
       consoleSpy.mockRestore();
     });
+
+    it('moves in the direction given by the prompt', () => {
+      const grid = [
+        [path, field],
+        [field, hat],
+      ];
+      const f = new Field(grid);
+      const mockPrompt = jest.fn()
+        .mockReturnValueOnce('d')
+        .mockReturnValue('q');
+      const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => { });
+      const game = new Game(f, mockPrompt);
+
+      game.play();
+
+      expect(consoleSpy).toHaveBeenCalledWith('*^');
+      consoleSpy.mockRestore();
+    });
   });
 });
