@@ -7,6 +7,8 @@ class Game {
 
   play() {
     this.field.print();
+    this.field.move('r')
+    this.field.print();
   }
 }
 

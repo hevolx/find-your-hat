@@ -23,5 +23,23 @@ describe('Game', () => {
       expect(consoleSpy).toHaveBeenCalledWith('*░');
       consoleSpy.mockRestore();
     });
+
+    it('prints the updated field after each move', () => {
+      const grid = [
+        [path, field, field],
+        [field, field, hat],
+      ];
+      const f = new Field(grid);
+      const mockPrompt = jest.fn()
+        .mockReturnValueOnce('r')
+        .mockReturnValue('q');
+      const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => { });
+      const game = new Game(f, mockPrompt);
+
+      game.play();
+
+      expect(consoleSpy).toHaveBeenCalledWith('**░');
+      consoleSpy.mockRestore();
+    });
   });
 });
