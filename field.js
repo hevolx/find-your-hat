@@ -24,29 +24,28 @@ class Field {
   move(input) {
     switch (input) {
       case 'r':
-        this.field[this.col++];
+        this.col++;
         if (this.col >= this.field[0].length) {
           return 'out-of-bounds'
         }
         break;
 
       case 'l':
-        this.field[this.col--];
+        this.col--;
         if (this.col < 0) {
           return 'out-of-bounds'
         }
         break;
 
-
       case 'd':
-        this.field[this.row++];
+        this.row++;
         if (this.row >= this.field.length) {
           return 'out-of-bounds'
         }
         break;
 
       case 'u':
-        this.field[this.row--];
+        this.row--;
         if (this.row < 0) {
           return 'out-of-bounds'
         }
