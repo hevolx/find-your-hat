@@ -15,10 +15,16 @@ class Game {
       result = this.field.move(input);
       this.field.print();
     } while (!result);
-    if (result === 'win') {
-      console.log('Du hittade hatten! Du vann!');
-    } else if (result === 'lose') {
-      console.log('Du föll i ett hål! Game over.');
+    switch (result) {
+      case 'win':
+        console.log('Du hittade hatten! Du vann!');
+        break;
+      case 'lose':
+        console.log('Du föll i ett hål! Game over.');
+        break;
+      case 'out-of-bounds':
+        console.log('Du gick utanför fältet! Game over.');
+        break;
     }
   }
 }

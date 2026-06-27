@@ -95,5 +95,22 @@ describe('Game', () => {
       expect(mockPrompt).toHaveBeenCalledTimes(1);
       consoleSpy.mockRestore();
     });
+
+    it('notifies the player and ends the game when they go out of bounds', () => {
+      const grid = [
+        [path, field],
+        [field, hat],
+      ];
+      const f = new Field(grid);
+      const mockPrompt = jest.fn().mockReturnValueOnce('u');
+      const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => { });
+      const game = new Game(f, mockPrompt);
+
+      game.play();
+
+      expect(consoleSpy).toHaveBeenCalledWith('Du gick utanför fältet! Game over.');
+      expect(mockPrompt).toHaveBeenCalledTimes(1);
+      consoleSpy.mockRestore();
+    });
   });
 });
