@@ -8,12 +8,16 @@ class Game {
 
   play() {
     this.field.print();
-    this.direction();
-    this.field.print();
-  }
-
-  direction() {
-    return this.field.move(this.prompt());
+    let result;
+    do {
+      const input = this.prompt();
+      if (input === 'q') break;
+      result = this.field.move(input);
+      this.field.print();
+    } while (!result);
+    if (result === 'win') {
+      console.log('Du hittade hatten! Du vann!');
+    }
   }
 }
 
