@@ -17,6 +17,8 @@ class Game {
     } while (!result);
     if (result === 'win') {
       console.log('Du hittade hatten! Du vann!');
+    } else if (result === 'lose') {
+      console.log('Du föll i ett hål! Game over.');
     }
   }
 }

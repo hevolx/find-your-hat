@@ -78,5 +78,22 @@ describe('Game', () => {
       expect(mockPrompt).toHaveBeenCalledTimes(2);
       consoleSpy.mockRestore();
     });
+
+    it('notifies the player and ends the game when they fall in a hole', () => {
+      const grid = [
+        [path, hole],
+        [field, hat],
+      ];
+      const f = new Field(grid);
+      const mockPrompt = jest.fn().mockReturnValueOnce('r');
+      const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => { });
+      const game = new Game(f, mockPrompt);
+
+      game.play();
+
+      expect(consoleSpy).toHaveBeenCalledWith('Du föll i ett hål! Game over.');
+      expect(mockPrompt).toHaveBeenCalledTimes(1);
+      consoleSpy.mockRestore();
+    });
   });
 });
