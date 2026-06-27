@@ -13,6 +13,7 @@ class Game {
       const input = this.prompt();
       if (input === 'q') break;
       result = this.field.move(input);
+      console.clear();
       this.field.print();
     } while (!result);
     switch (result) {
